@@ -217,3 +217,95 @@ workflows:
             name: go/golang
             version: 1.12.13
             owner-repo: palantir/pkg/httpserver
+
+      # matcher
+      - godel/verify:
+          name: matcher-verify
+          <<: *checkout-path
+          executor:
+            name: go/golang
+            version: 1.13.4
+            owner-repo: palantir/pkg/matcher
+      - godel/test:
+          name: matcher-test-go-1.13
+          <<: *checkout-path
+          executor:
+            name: go/golang
+            version: 1.13.4
+            owner-repo: palantir/pkg/matcher
+      - godel/test:
+          name: matcher-test-go-1.12
+          <<: *checkout-path
+          executor:
+            name: go/golang
+            version: 1.12.13
+            owner-repo: palantir/pkg/matcher
+
+      # merge
+      - godel/verify:
+          name: merge-verify
+          <<: *checkout-path
+          executor:
+            name: go/golang
+            version: 1.13.4
+            owner-repo: palantir/pkg/merge
+      - godel/test:
+          name: merge-test-go-1.13
+          <<: *checkout-path
+          executor:
+            name: go/golang
+            version: 1.13.4
+            owner-repo: palantir/pkg/merge
+      - godel/test:
+          name: merge-test-go-1.12
+          <<: *checkout-path
+          executor:
+            name: go/golang
+            version: 1.12.13
+            owner-repo: palantir/pkg/merge
+
+      # metrics
+      - godel/verify:
+          name: metrics-verify
+          <<: *checkout-path
+          executor:
+            name: go/golang
+            version: 1.13.4
+            owner-repo: palantir/pkg/metrics
+      - godel/test:
+          name: metrics-test-go-1.13
+          <<: *checkout-path
+          executor:
+            name: go/golang
+            version: 1.13.4
+            owner-repo: palantir/pkg/metrics
+      - godel/test:
+          name: metrics-test-go-1.12
+          <<: *checkout-path
+          executor:
+            name: go/golang
+            version: 1.12.13
+            owner-repo: palantir/pkg/metrics
+
+      # objmatcher
+      - godel/verify:
+          name: objmatcher-verify
+          <<: *checkout-path
+          executor:
+            name: go/golang
+            version: 1.13.4
+            owner-repo: palantir/pkg/objmatcher
+      - godel/test:
+          name: objmatcher-test-go-1.13
+          <<: *checkout-path
+          executor:
+            name: go/golang
+            version: 1.13.4
+            owner-repo: palantir/pkg/objmatcher
+      - godel/test:
+          name: objmatcher-test-go-1.12
+          <<: *checkout-path
+          executor:
+            name: go/golang
+            version: 1.12.13
+            owner-repo: palantir/pkg/objmatcher
