@@ -125,3 +125,95 @@ workflows:
             name: go/golang
             version: 1.12.13
             owner-repo: palantir/pkg/cobracli
+
+      # datetime
+      - godel/verify:
+          name: datetime-verify
+          <<: *checkout-path
+          executor:
+            name: go/golang
+            version: 1.13.4
+            owner-repo: palantir/pkg/datetime
+      - godel/test:
+          name: datetime-test-go-1.13
+          <<: *checkout-path
+          executor:
+            name: go/golang
+            version: 1.13.4
+            owner-repo: palantir/pkg/datetime
+      - godel/test:
+          name: datetime-test-go-1.12
+          <<: *checkout-path
+          executor:
+            name: go/golang
+            version: 1.12.13
+            owner-repo: palantir/pkg/datetime
+
+      # gittest
+      - godel/verify:
+          name: gittest-verify
+          <<: *checkout-path
+          executor:
+            name: go/golang
+            version: 1.13.4
+            owner-repo: palantir/pkg/gittest
+      - godel/test:
+          name: gittest-test-go-1.13
+          <<: *checkout-path
+          executor:
+            name: go/golang
+            version: 1.13.4
+            owner-repo: palantir/pkg/gittest
+      - godel/test:
+          name: gittest-test-go-1.12
+          <<: *checkout-path
+          executor:
+            name: go/golang
+            version: 1.12.13
+            owner-repo: palantir/pkg/gittest
+
+      # httpclient
+      - godel/verify:
+          name: httpclient-verify
+          <<: *checkout-path
+          executor:
+            name: go/golang
+            version: 1.13.4
+            owner-repo: palantir/pkg/httpclient
+      - godel/test:
+          name: httpclient-test-go-1.13
+          <<: *checkout-path
+          executor:
+            name: go/golang
+            version: 1.13.4
+            owner-repo: palantir/pkg/httpclient
+      - godel/test:
+          name: httpclient-test-go-1.12
+          <<: *checkout-path
+          executor:
+            name: go/golang
+            version: 1.12.13
+            owner-repo: palantir/pkg/httpclient
+
+      # httpserver
+      - godel/verify:
+          name: httpserver-verify
+          <<: *checkout-path
+          executor:
+            name: go/golang
+            version: 1.13.4
+            owner-repo: palantir/pkg/httpserver
+      - godel/test:
+          name: httpserver-test-go-1.13
+          <<: *checkout-path
+          executor:
+            name: go/golang
+            version: 1.13.4
+            owner-repo: palantir/pkg/httpserver
+      - godel/test:
+          name: httpserver-test-go-1.12
+          <<: *checkout-path
+          executor:
+            name: go/golang
+            version: 1.12.13
+            owner-repo: palantir/pkg/httpserver
