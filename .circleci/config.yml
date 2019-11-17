@@ -56,3 +56,72 @@ workflows:
             name: go/golang
             version: 1.12.13
             owner-repo: palantir/pkg/binary
+
+      # bytesbuffers
+      - godel/verify:
+          name: bytesbuffers-verify
+          <<: *checkout-path
+          executor:
+            name: go/golang
+            version: 1.13.4
+            owner-repo: palantir/pkg/bytesbuffers
+      - godel/test:
+          name: bytesbuffers-test-go-1.13
+          <<: *checkout-path
+          executor:
+            name: go/golang
+            version: 1.13.4
+            owner-repo: palantir/pkg/bytesbuffers
+      - godel/test:
+          name: bytesbuffers-test-go-1.12
+          <<: *checkout-path
+          executor:
+            name: go/golang
+            version: 1.12.13
+            owner-repo: palantir/pkg/bytesbuffers
+
+      # cli
+      - godel/verify:
+          name: cli-verify
+          <<: *checkout-path
+          executor:
+            name: go/golang
+            version: 1.13.4
+            owner-repo: palantir/pkg/cli
+      - godel/test:
+          name: cli-test-go-1.13
+          <<: *checkout-path
+          executor:
+            name: go/golang
+            version: 1.13.4
+            owner-repo: palantir/pkg/cli
+      - godel/test:
+          name: cli-test-go-1.12
+          <<: *checkout-path
+          executor:
+            name: go/golang
+            version: 1.12.13
+            owner-repo: palantir/pkg/cli
+
+      # cobracli
+      - godel/verify:
+          name: cobracli-verify
+          <<: *checkout-path
+          executor:
+            name: go/golang
+            version: 1.13.4
+            owner-repo: palantir/pkg/cobracli
+      - godel/test:
+          name: cobracli-test-go-1.13
+          <<: *checkout-path
+          executor:
+            name: go/golang
+            version: 1.13.4
+            owner-repo: palantir/pkg/cobracli
+      - godel/test:
+          name: cobracli-test-go-1.12
+          <<: *checkout-path
+          executor:
+            name: go/golang
+            version: 1.12.13
+            owner-repo: palantir/pkg/cobracli
