@@ -19,20 +19,20 @@ workflows:
             name: go/golang
             version: 1.13.4
             owner-repo: palantir/pkg/bearertoken
-      - godel/test:
-          name: bearertoken-test-go-1.13
-          <<: *checkout-path
-          executor:
-            name: go/golang
-            version: 1.13.4
-            owner-repo: palantir/pkg/bearertoken
-      - godel/test:
-          name: bearertoken-test-go-1.12
-          <<: *checkout-path
-          executor:
-            name: go/golang
-            version: 1.12.13
-            owner-repo: palantir/pkg/bearertoken
+#      - godel/test:
+#          name: bearertoken-test-go-1.13
+#          <<: *checkout-path
+#          executor:
+#            name: go/golang
+#            version: 1.13.4
+#            owner-repo: palantir/pkg/bearertoken
+#      - godel/test:
+#          name: bearertoken-test-go-1.12
+#          <<: *checkout-path
+#          executor:
+#            name: go/golang
+#            version: 1.12.13
+#            owner-repo: palantir/pkg/bearertoken
 
       # binary
       - godel/verify:
@@ -42,20 +42,20 @@ workflows:
             name: go/golang
             version: 1.13.4
             owner-repo: palantir/pkg/binary
-      - godel/test:
-          name: binary-test-go-1.13
-          <<: *checkout-path
-          executor:
-            name: go/golang
-            version: 1.13.4
-            owner-repo: palantir/pkg/binary
-      - godel/test:
-          name: binary-test-go-1.12
-          <<: *checkout-path
-          executor:
-            name: go/golang
-            version: 1.12.13
-            owner-repo: palantir/pkg/binary
+#      - godel/test:
+#          name: binary-test-go-1.13
+#          <<: *checkout-path
+#          executor:
+#            name: go/golang
+#            version: 1.13.4
+#            owner-repo: palantir/pkg/binary
+#      - godel/test:
+#          name: binary-test-go-1.12
+#          <<: *checkout-path
+#          executor:
+#            name: go/golang
+#            version: 1.12.13
+#            owner-repo: palantir/pkg/binary
 
       # bytesbuffers
       - godel/verify:
@@ -65,20 +65,20 @@ workflows:
             name: go/golang
             version: 1.13.4
             owner-repo: palantir/pkg/bytesbuffers
-      - godel/test:
-          name: bytesbuffers-test-go-1.13
-          <<: *checkout-path
-          executor:
-            name: go/golang
-            version: 1.13.4
-            owner-repo: palantir/pkg/bytesbuffers
-      - godel/test:
-          name: bytesbuffers-test-go-1.12
-          <<: *checkout-path
-          executor:
-            name: go/golang
-            version: 1.12.13
-            owner-repo: palantir/pkg/bytesbuffers
+#      - godel/test:
+#          name: bytesbuffers-test-go-1.13
+#          <<: *checkout-path
+#          executor:
+#            name: go/golang
+#            version: 1.13.4
+#            owner-repo: palantir/pkg/bytesbuffers
+#      - godel/test:
+#          name: bytesbuffers-test-go-1.12
+#          <<: *checkout-path
+#          executor:
+#            name: go/golang
+#            version: 1.12.13
+#            owner-repo: palantir/pkg/bytesbuffers
 
       # cli
       - godel/verify:
@@ -88,20 +88,20 @@ workflows:
             name: go/golang
             version: 1.13.4
             owner-repo: palantir/pkg/cli
-      - godel/test:
-          name: cli-test-go-1.13
-          <<: *checkout-path
-          executor:
-            name: go/golang
-            version: 1.13.4
-            owner-repo: palantir/pkg/cli
-      - godel/test:
-          name: cli-test-go-1.12
-          <<: *checkout-path
-          executor:
-            name: go/golang
-            version: 1.12.13
-            owner-repo: palantir/pkg/cli
+#      - godel/test:
+#          name: cli-test-go-1.13
+#          <<: *checkout-path
+#          executor:
+#            name: go/golang
+#            version: 1.13.4
+#            owner-repo: palantir/pkg/cli
+#      - godel/test:
+#          name: cli-test-go-1.12
+#          <<: *checkout-path
+#          executor:
+#            name: go/golang
+#            version: 1.12.13
+#            owner-repo: palantir/pkg/cli
 
       # cobracli
       - godel/verify:
@@ -111,20 +111,20 @@ workflows:
             name: go/golang
             version: 1.13.4
             owner-repo: palantir/pkg/cobracli
-      - godel/test:
-          name: cobracli-test-go-1.13
-          <<: *checkout-path
-          executor:
-            name: go/golang
-            version: 1.13.4
-            owner-repo: palantir/pkg/cobracli
-      - godel/test:
-          name: cobracli-test-go-1.12
-          <<: *checkout-path
-          executor:
-            name: go/golang
-            version: 1.12.13
-            owner-repo: palantir/pkg/cobracli
+#      - godel/test:
+#          name: cobracli-test-go-1.13
+#          <<: *checkout-path
+#          executor:
+#            name: go/golang
+#            version: 1.13.4
+#            owner-repo: palantir/pkg/cobracli
+#      - godel/test:
+#          name: cobracli-test-go-1.12
+#          <<: *checkout-path
+#          executor:
+#            name: go/golang
+#            version: 1.12.13
+#            owner-repo: palantir/pkg/cobracli
 
       # datetime
       - godel/verify:
@@ -134,20 +134,20 @@ workflows:
             name: go/golang
             version: 1.13.4
             owner-repo: palantir/pkg/datetime
-      - godel/test:
-          name: datetime-test-go-1.13
-          <<: *checkout-path
-          executor:
-            name: go/golang
-            version: 1.13.4
-            owner-repo: palantir/pkg/datetime
-      - godel/test:
-          name: datetime-test-go-1.12
-          <<: *checkout-path
-          executor:
-            name: go/golang
-            version: 1.12.13
-            owner-repo: palantir/pkg/datetime
+#      - godel/test:
+#          name: datetime-test-go-1.13
+#          <<: *checkout-path
+#          executor:
+#            name: go/golang
+#            version: 1.13.4
+#            owner-repo: palantir/pkg/datetime
+#      - godel/test:
+#          name: datetime-test-go-1.12
+#          <<: *checkout-path
+#          executor:
+#            name: go/golang
+#            version: 1.12.13
+#            owner-repo: palantir/pkg/datetime
 
       # gittest
       - godel/verify:
@@ -157,20 +157,20 @@ workflows:
             name: go/golang
             version: 1.13.4
             owner-repo: palantir/pkg/gittest
-      - godel/test:
-          name: gittest-test-go-1.13
-          <<: *checkout-path
-          executor:
-            name: go/golang
-            version: 1.13.4
-            owner-repo: palantir/pkg/gittest
-      - godel/test:
-          name: gittest-test-go-1.12
-          <<: *checkout-path
-          executor:
-            name: go/golang
-            version: 1.12.13
-            owner-repo: palantir/pkg/gittest
+#      - godel/test:
+#          name: gittest-test-go-1.13
+#          <<: *checkout-path
+#          executor:
+#            name: go/golang
+#            version: 1.13.4
+#            owner-repo: palantir/pkg/gittest
+#      - godel/test:
+#          name: gittest-test-go-1.12
+#          <<: *checkout-path
+#          executor:
+#            name: go/golang
+#            version: 1.12.13
+#            owner-repo: palantir/pkg/gittest
 
       # httpclient
       - godel/verify:
@@ -180,20 +180,20 @@ workflows:
             name: go/golang
             version: 1.13.4
             owner-repo: palantir/pkg/httpclient
-      - godel/test:
-          name: httpclient-test-go-1.13
-          <<: *checkout-path
-          executor:
-            name: go/golang
-            version: 1.13.4
-            owner-repo: palantir/pkg/httpclient
-      - godel/test:
-          name: httpclient-test-go-1.12
-          <<: *checkout-path
-          executor:
-            name: go/golang
-            version: 1.12.13
-            owner-repo: palantir/pkg/httpclient
+#      - godel/test:
+#          name: httpclient-test-go-1.13
+#          <<: *checkout-path
+#          executor:
+#            name: go/golang
+#            version: 1.13.4
+#            owner-repo: palantir/pkg/httpclient
+#      - godel/test:
+#          name: httpclient-test-go-1.12
+#          <<: *checkout-path
+#          executor:
+#            name: go/golang
+#            version: 1.12.13
+#            owner-repo: palantir/pkg/httpclient
 
       # httpserver
       - godel/verify:
@@ -203,20 +203,20 @@ workflows:
             name: go/golang
             version: 1.13.4
             owner-repo: palantir/pkg/httpserver
-      - godel/test:
-          name: httpserver-test-go-1.13
-          <<: *checkout-path
-          executor:
-            name: go/golang
-            version: 1.13.4
-            owner-repo: palantir/pkg/httpserver
-      - godel/test:
-          name: httpserver-test-go-1.12
-          <<: *checkout-path
-          executor:
-            name: go/golang
-            version: 1.12.13
-            owner-repo: palantir/pkg/httpserver
+#      - godel/test:
+#          name: httpserver-test-go-1.13
+#          <<: *checkout-path
+#          executor:
+#            name: go/golang
+#            version: 1.13.4
+#            owner-repo: palantir/pkg/httpserver
+#      - godel/test:
+#          name: httpserver-test-go-1.12
+#          <<: *checkout-path
+#          executor:
+#            name: go/golang
+#            version: 1.12.13
+#            owner-repo: palantir/pkg/httpserver
 
       # matcher
       - godel/verify:
@@ -226,20 +226,20 @@ workflows:
             name: go/golang
             version: 1.13.4
             owner-repo: palantir/pkg/matcher
-      - godel/test:
-          name: matcher-test-go-1.13
-          <<: *checkout-path
-          executor:
-            name: go/golang
-            version: 1.13.4
-            owner-repo: palantir/pkg/matcher
-      - godel/test:
-          name: matcher-test-go-1.12
-          <<: *checkout-path
-          executor:
-            name: go/golang
-            version: 1.12.13
-            owner-repo: palantir/pkg/matcher
+#      - godel/test:
+#          name: matcher-test-go-1.13
+#          <<: *checkout-path
+#          executor:
+#            name: go/golang
+#            version: 1.13.4
+#            owner-repo: palantir/pkg/matcher
+#      - godel/test:
+#          name: matcher-test-go-1.12
+#          <<: *checkout-path
+#          executor:
+#            name: go/golang
+#            version: 1.12.13
+#            owner-repo: palantir/pkg/matcher
 
       # merge
       - godel/verify:
@@ -249,20 +249,20 @@ workflows:
             name: go/golang
             version: 1.13.4
             owner-repo: palantir/pkg/merge
-      - godel/test:
-          name: merge-test-go-1.13
-          <<: *checkout-path
-          executor:
-            name: go/golang
-            version: 1.13.4
-            owner-repo: palantir/pkg/merge
-      - godel/test:
-          name: merge-test-go-1.12
-          <<: *checkout-path
-          executor:
-            name: go/golang
-            version: 1.12.13
-            owner-repo: palantir/pkg/merge
+#      - godel/test:
+#          name: merge-test-go-1.13
+#          <<: *checkout-path
+#          executor:
+#            name: go/golang
+#            version: 1.13.4
+#            owner-repo: palantir/pkg/merge
+#      - godel/test:
+#          name: merge-test-go-1.12
+#          <<: *checkout-path
+#          executor:
+#            name: go/golang
+#            version: 1.12.13
+#            owner-repo: palantir/pkg/merge
 
       # metrics
       - godel/verify:
@@ -272,20 +272,20 @@ workflows:
             name: go/golang
             version: 1.13.4
             owner-repo: palantir/pkg/metrics
-      - godel/test:
-          name: metrics-test-go-1.13
-          <<: *checkout-path
-          executor:
-            name: go/golang
-            version: 1.13.4
-            owner-repo: palantir/pkg/metrics
-      - godel/test:
-          name: metrics-test-go-1.12
-          <<: *checkout-path
-          executor:
-            name: go/golang
-            version: 1.12.13
-            owner-repo: palantir/pkg/metrics
+#      - godel/test:
+#          name: metrics-test-go-1.13
+#          <<: *checkout-path
+#          executor:
+#            name: go/golang
+#            version: 1.13.4
+#            owner-repo: palantir/pkg/metrics
+#      - godel/test:
+#          name: metrics-test-go-1.12
+#          <<: *checkout-path
+#          executor:
+#            name: go/golang
+#            version: 1.12.13
+#            owner-repo: palantir/pkg/metrics
 
       # objmatcher
       - godel/verify:
@@ -295,17 +295,17 @@ workflows:
             name: go/golang
             version: 1.13.4
             owner-repo: palantir/pkg/objmatcher
-      - godel/test:
-          name: objmatcher-test-go-1.13
-          <<: *checkout-path
-          executor:
-            name: go/golang
-            version: 1.13.4
-            owner-repo: palantir/pkg/objmatcher
-      - godel/test:
-          name: objmatcher-test-go-1.12
-          <<: *checkout-path
-          executor:
-            name: go/golang
-            version: 1.12.13
-            owner-repo: palantir/pkg/objmatcher
+#      - godel/test:
+#          name: objmatcher-test-go-1.13
+#          <<: *checkout-path
+#          executor:
+#            name: go/golang
+#            version: 1.13.4
+#            owner-repo: palantir/pkg/objmatcher
+#      - godel/test:
+#          name: objmatcher-test-go-1.12
+#          <<: *checkout-path
+#          executor:
+#            name: go/golang
+#            version: 1.12.13
+#            owner-repo: palantir/pkg/objmatcher
