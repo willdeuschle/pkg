@@ -20,13 +20,6 @@ workflows:
             name: go/golang
             version: 1.13.4
             owner-repo: palantir/pkg/bearertoken
-#      - godel/test:
-#          name: bearertoken-test-go-1.13
-#          <<: *checkout-path
-#          executor:
-#            name: go/golang
-#            version: 1.13.4
-#            owner-repo: palantir/pkg/bearertoken
       - godel/test:
           name: bearertoken-test-go-1.12
           <<: *checkout-path
@@ -41,24 +34,20 @@ workflows:
       - godel/verify:
           name: binary-verify
           <<: *checkout-path
+          include-tests: true
           executor:
             name: go/golang
             version: 1.13.4
             owner-repo: palantir/pkg/binary
-#      - godel/test:
-#          name: binary-test-go-1.13
-#          <<: *checkout-path
-#          executor:
-#            name: go/golang
-#            version: 1.13.4
-#            owner-repo: palantir/pkg/binary
-#      - godel/test:
-#          name: binary-test-go-1.12
-#          <<: *checkout-path
-#          executor:
-#            name: go/golang
-#            version: 1.12.13
-#            owner-repo: palantir/pkg/binary
+      - godel/test:
+          name: binary-test-go-1.12
+          <<: *checkout-path
+          executor:
+            name: go/golang
+            version: 1.12.13
+            owner-repo: palantir/pkg/binary
+          requires:
+            - binary-verify
 
       # bytesbuffers
       - godel/verify:
