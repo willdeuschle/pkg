@@ -7,10 +7,23 @@ orbs:
   go: palantir/go@0.0.14
   godel: palantir/godel@0.0.14
 
+jobs:
+  verify-circleci:
+    working_directory: /go/src/github.com/palantir/pkg
+    docker:
+      - image: "golang:1.13.4"
+    steps:
+      - checkout
+      - run: go version
+      - run: go run .circleci/generate.go .
+      - run: diff  <(cat .circleci/config.yml) <(go run .circleci/generate.go .)
+
 workflows:
   version: 2
   verify-test:
     jobs:
+      - verify-circleci
+
       # bearertoken
       - godel/verify:
           name: bearertoken-verify

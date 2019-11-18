@@ -8,6 +8,7 @@ import (
 	"bytes"
 	"fmt"
 	"io/ioutil"
+	"os"
 	"strings"
 	"text/template"
 )
@@ -22,10 +23,23 @@ orbs:
   go: palantir/go@0.0.14
   godel: palantir/godel@0.0.14
 
+jobs:
+  verify-circleci:
+    working_directory: /go/src/github.com/palantir/pkg
+    docker:
+      - image: "golang:1.13.4"
+    steps:
+      - checkout
+      - run: go version
+      - run: go run .circleci/generate.go .
+      - run: diff  <(cat .circleci/config.yml) <(go run .circleci/generate.go .)
+
 workflows:
   version: 2
   verify-test:
     jobs:
+      - verify-circleci
+
 `
 
 	moduleTemplateContent = `      # {{.Module}}
@@ -50,14 +64,18 @@ workflows:
 )
 
 type TemplateObject struct {
-	Module string
-	CurrGoVersion string
-	PrevGoVersion string
+	Module             string
+	CurrGoVersion      string
+	PrevGoVersion      string
 	PrevGoMajorVersion string
 }
 
 func main() {
-	mods, err := modules("..")
+	if len(os.Args) < 2 {
+		panic("parent directory must be provided as argument")
+	}
+	modParentDir := os.Args[1]
+	mods, err := modules(modParentDir)
 	if err != nil {
 		panic(err)
 	}
@@ -86,7 +104,7 @@ func createConfigYML(modDirs []string, currGoVersion, prevGoVersion string) (str
 
 	outBuf := &bytes.Buffer{}
 	_, _ = fmt.Fprint(outBuf, header)
-	for _, modDir := range modDirs {
+	for i, modDir := range modDirs {
 		modJobs, err := moduleJobs(TemplateObject{
 			Module:             modDir,
 			CurrGoVersion:      currGoVersion,
@@ -96,7 +114,10 @@ func createConfigYML(modDirs []string, currGoVersion, prevGoVersion string) (str
 		if err != nil {
 			return "", fmt.Errorf("failed to generate jobs for moduleTemplate %s: %v", modDir, err)
 		}
-		fmt.Fprintln(outBuf, modJobs)
+		fmt.Fprint(outBuf, modJobs)
+		if i != len(modDirs)-1 {
+			fmt.Fprintln(outBuf)
+		}
 	}
 	return outBuf.String(), nil
 }
