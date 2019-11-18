@@ -53,47 +53,39 @@ workflows:
       - godel/verify:
           name: bytesbuffers-verify
           <<: *checkout-path
+          include-tests: true
           executor:
             name: go/golang
             version: 1.13.4
             owner-repo: palantir/pkg/bytesbuffers
-#      - godel/test:
-#          name: bytesbuffers-test-go-1.13
-#          <<: *checkout-path
-#          executor:
-#            name: go/golang
-#            version: 1.13.4
-#            owner-repo: palantir/pkg/bytesbuffers
-#      - godel/test:
-#          name: bytesbuffers-test-go-1.12
-#          <<: *checkout-path
-#          executor:
-#            name: go/golang
-#            version: 1.12.13
-#            owner-repo: palantir/pkg/bytesbuffers
+      - godel/test:
+          name: bytesbuffers-test-go-1.12
+          <<: *checkout-path
+          executor:
+            name: go/golang
+            version: 1.12.13
+            owner-repo: palantir/pkg/bytesbuffers
+          requires:
+            - bytesbuffers-verify
 
       # cli
       - godel/verify:
           name: cli-verify
           <<: *checkout-path
+          include-tests: true
           executor:
             name: go/golang
             version: 1.13.4
             owner-repo: palantir/pkg/cli
-#      - godel/test:
-#          name: cli-test-go-1.13
-#          <<: *checkout-path
-#          executor:
-#            name: go/golang
-#            version: 1.13.4
-#            owner-repo: palantir/pkg/cli
-#      - godel/test:
-#          name: cli-test-go-1.12
-#          <<: *checkout-path
-#          executor:
-#            name: go/golang
-#            version: 1.12.13
-#            owner-repo: palantir/pkg/cli
+      - godel/test:
+          name: cli-test-go-1.12
+          <<: *checkout-path
+          executor:
+            name: go/golang
+            version: 1.12.13
+            owner-repo: palantir/pkg/cli
+          requires:
+            - cli-verify
 
       # cobracli
       - godel/verify:
