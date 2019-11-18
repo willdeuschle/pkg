@@ -563,28 +563,28 @@ workflows:
 #            version: 1.12.13
 #            owner-repo: palantir/pkg/tlsconfig
 
-      # transforms
+      # transform
       - godel/verify:
-          name: transforms-verify
+          name: transform-verify
           <<: *checkout-path
           executor:
             name: go/golang
             version: 1.13.4
-            owner-repo: palantir/pkg/transforms
+            owner-repo: palantir/pkg/transform
 #      - godel/test:
-#          name: transforms-test-go-1.13
+#          name: transform-test-go-1.13
 #          <<: *checkout-path
 #          executor:
 #            name: go/golang
 #            version: 1.13.4
-#            owner-repo: palantir/pkg/transforms
+#            owner-repo: palantir/pkg/transform
 #      - godel/test:
-#          name: transforms-test-go-1.12
+#          name: transform-test-go-1.12
 #          <<: *checkout-path
 #          executor:
 #            name: go/golang
 #            version: 1.12.13
-#            owner-repo: palantir/pkg/transforms
+#            owner-repo: palantir/pkg/transform
 
       # typenames
       - godel/verify:
