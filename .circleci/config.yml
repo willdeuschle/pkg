@@ -470,3 +470,164 @@ workflows:
 #            name: go/golang
 #            version: 1.12.13
 #            owner-repo: palantir/pkg/safeyaml
+
+      # signals
+      - godel/verify:
+          name: signals-verify
+          <<: *checkout-path
+          executor:
+            name: go/golang
+            version: 1.13.4
+            owner-repo: palantir/pkg/signals
+#      - godel/test:
+#          name: signals-test-go-1.13
+#          <<: *checkout-path
+#          executor:
+#            name: go/golang
+#            version: 1.13.4
+#            owner-repo: palantir/pkg/signals
+#      - godel/test:
+#          name: signals-test-go-1.12
+#          <<: *checkout-path
+#          executor:
+#            name: go/golang
+#            version: 1.12.13
+#            owner-repo: palantir/pkg/signals
+
+      # specdir
+      - godel/verify:
+          name: specdir-verify
+          <<: *checkout-path
+          executor:
+            name: go/golang
+            version: 1.13.4
+            owner-repo: palantir/pkg/specdir
+#      - godel/test:
+#          name: specdir-test-go-1.13
+#          <<: *checkout-path
+#          executor:
+#            name: go/golang
+#            version: 1.13.4
+#            owner-repo: palantir/pkg/specdir
+#      - godel/test:
+#          name: specdir-test-go-1.12
+#          <<: *checkout-path
+#          executor:
+#            name: go/golang
+#            version: 1.12.13
+#            owner-repo: palantir/pkg/specdir
+
+      # tableprinter
+      - godel/verify:
+          name: tableprinter-verify
+          <<: *checkout-path
+          executor:
+            name: go/golang
+            version: 1.13.4
+            owner-repo: palantir/pkg/tableprinter
+#      - godel/test:
+#          name: tableprinter-test-go-1.13
+#          <<: *checkout-path
+#          executor:
+#            name: go/golang
+#            version: 1.13.4
+#            owner-repo: palantir/pkg/tableprinter
+#      - godel/test:
+#          name: tableprinter-test-go-1.12
+#          <<: *checkout-path
+#          executor:
+#            name: go/golang
+#            version: 1.12.13
+#            owner-repo: palantir/pkg/tableprinter
+
+      # tlsconfig
+      - godel/verify:
+          name: tlsconfig-verify
+          <<: *checkout-path
+          executor:
+            name: go/golang
+            version: 1.13.4
+            owner-repo: palantir/pkg/tlsconfig
+#      - godel/test:
+#          name: tlsconfig-test-go-1.13
+#          <<: *checkout-path
+#          executor:
+#            name: go/golang
+#            version: 1.13.4
+#            owner-repo: palantir/pkg/tlsconfig
+#      - godel/test:
+#          name: tlsconfig-test-go-1.12
+#          <<: *checkout-path
+#          executor:
+#            name: go/golang
+#            version: 1.12.13
+#            owner-repo: palantir/pkg/tlsconfig
+
+      # transforms
+      - godel/verify:
+          name: transforms-verify
+          <<: *checkout-path
+          executor:
+            name: go/golang
+            version: 1.13.4
+            owner-repo: palantir/pkg/transforms
+#      - godel/test:
+#          name: transforms-test-go-1.13
+#          <<: *checkout-path
+#          executor:
+#            name: go/golang
+#            version: 1.13.4
+#            owner-repo: palantir/pkg/transforms
+#      - godel/test:
+#          name: transforms-test-go-1.12
+#          <<: *checkout-path
+#          executor:
+#            name: go/golang
+#            version: 1.12.13
+#            owner-repo: palantir/pkg/transforms
+
+      # typenames
+      - godel/verify:
+          name: typenames-verify
+          <<: *checkout-path
+          executor:
+            name: go/golang
+            version: 1.13.4
+            owner-repo: palantir/pkg/typenames
+#      - godel/test:
+#          name: typenames-test-go-1.13
+#          <<: *checkout-path
+#          executor:
+#            name: go/golang
+#            version: 1.13.4
+#            owner-repo: palantir/pkg/typenames
+#      - godel/test:
+#          name: typenames-test-go-1.12
+#          <<: *checkout-path
+#          executor:
+#            name: go/golang
+#            version: 1.12.13
+#            owner-repo: palantir/pkg/typenames
+
+      # uuid
+      - godel/verify:
+          name: uuid-verify
+          <<: *checkout-path
+          executor:
+            name: go/golang
+            version: 1.13.4
+            owner-repo: palantir/pkg/uuid
+#      - godel/test:
+#          name: uuid-test-go-1.13
+#          <<: *checkout-path
+#          executor:
+#            name: go/golang
+#            version: 1.13.4
+#            owner-repo: palantir/pkg/uuid
+#      - godel/test:
+#          name: uuid-test-go-1.12
+#          <<: *checkout-path
+#          executor:
+#            name: go/golang
+#            version: 1.12.13
+#            owner-repo: palantir/pkg/uuid
