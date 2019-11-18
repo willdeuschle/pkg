@@ -91,70 +91,58 @@ workflows:
       - godel/verify:
           name: cobracli-verify
           <<: *checkout-path
+          include-tests: true
           executor:
             name: go/golang
             version: 1.13.4
             owner-repo: palantir/pkg/cobracli
-#      - godel/test:
-#          name: cobracli-test-go-1.13
-#          <<: *checkout-path
-#          executor:
-#            name: go/golang
-#            version: 1.13.4
-#            owner-repo: palantir/pkg/cobracli
-#      - godel/test:
-#          name: cobracli-test-go-1.12
-#          <<: *checkout-path
-#          executor:
-#            name: go/golang
-#            version: 1.12.13
-#            owner-repo: palantir/pkg/cobracli
+      - godel/test:
+          name: cobracli-test-go-1.12
+          <<: *checkout-path
+          executor:
+            name: go/golang
+            version: 1.12.13
+            owner-repo: palantir/pkg/cobracli
+          requires:
+            - cobracli-verify
 
       # datetime
       - godel/verify:
           name: datetime-verify
           <<: *checkout-path
+          include-tests: true
           executor:
             name: go/golang
             version: 1.13.4
             owner-repo: palantir/pkg/datetime
-#      - godel/test:
-#          name: datetime-test-go-1.13
-#          <<: *checkout-path
-#          executor:
-#            name: go/golang
-#            version: 1.13.4
-#            owner-repo: palantir/pkg/datetime
-#      - godel/test:
-#          name: datetime-test-go-1.12
-#          <<: *checkout-path
-#          executor:
-#            name: go/golang
-#            version: 1.12.13
-#            owner-repo: palantir/pkg/datetime
+      - godel/test:
+          name: datetime-test-go-1.12
+          <<: *checkout-path
+          executor:
+            name: go/golang
+            version: 1.12.13
+            owner-repo: palantir/pkg/datetime
+          requires:
+            - datetime-verify
 
       # gittest
       - godel/verify:
           name: gittest-verify
           <<: *checkout-path
+          include-tests: true
           executor:
             name: go/golang
             version: 1.13.4
             owner-repo: palantir/pkg/gittest
-#      - godel/test:
-#          name: gittest-test-go-1.13
-#          <<: *checkout-path
-#          executor:
-#            name: go/golang
-#            version: 1.13.4
-#            owner-repo: palantir/pkg/gittest
-#      - godel/test:
-#          name: gittest-test-go-1.12
-#          <<: *checkout-path
-#          executor:
-#            name: go/golang
-#            version: 1.12.13
-#            owner-repo: palantir/pkg/gittest
+      - godel/test:
+          name: gittest-test-go-1.12
+          <<: *checkout-path
+          executor:
+            name: go/golang
+            version: 1.12.13
+            owner-repo: palantir/pkg/gittest
+          requires:
+            - gittest-verify
 
       # httpclient
       - godel/verify:
