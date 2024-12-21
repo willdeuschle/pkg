@@ -4,7 +4,7 @@
 
 // Package retry provides functionality for controlling retries.
 //
-// Exponential Backoff
+// # Exponential Backoff
 //
 // Backoff duration after $retryAttempt (first attempt is 0) is defined as:
 //
@@ -12,7 +12,7 @@
 //	  min(initialBackoff * pow(multiplier, $retryAttempt), maxBackoff == 0 ? +Inf : maxBackoff) *
 //	    (1.0 - randomizationFactor + 2 * rand(0, randomizationFactor))
 //
-// Retrying Failures
+// # Retrying Failures
 //
 // Example 1: Opening connection.
 //
@@ -20,7 +20,7 @@
 //		return openConnection(&handle)
 //	})
 //
-// Retry Loops
+// # Retry Loops
 //
 // Example 1: Event pulling and dispatching.
 //
@@ -56,7 +56,6 @@
 //		}
 //	}
 //	return false
-//
 package retry
 
 import (
@@ -124,6 +123,8 @@ func WithMaxAttempts(maxAttempts int) Option {
 // WithInitialBackoff sets initial backoff.
 //
 // If initial backoff option is not used, then default value of 50 milliseconds is used.
+// If initial backoff is larger than max backoff and the max backoff is nonzero, the initial backoff will be
+// used as the max.
 func WithInitialBackoff(initialBackoff time.Duration) Option {
 	return func(o *options) {
 		o.initialBackoff = initialBackoff
@@ -180,6 +181,10 @@ func Start(ctx context.Context, opts ...Option) Retrier {
 	for _, option := range opts {
 		option(&r.options)
 	}
+	// If initial backoff is larger than max backoff and the max backoff is set, initial takes precedence.
+	if r.options.maxBackoff != 0 {
+		r.options.maxBackoff = max(r.options.maxBackoff, r.options.initialBackoff)
+	}
 	r.Reset()
 	return r
 }
@@ -199,7 +204,6 @@ const (
 //	backoff =
 //	  min(initialBackoff * pow(multiplier, $attempt), maxBackoff == 0 ? +Inf : maxBackoff) *
 //	    (1.0 - randomizationFactor + 2 * rand(0, randomizationFactor))
-//
 type retrier struct {
 	options        options
 	ctxDoneChan    <-chan struct{}
@@ -262,4 +266,11 @@ func (r retrier) retryIn() time.Duration {
 
 func (r retrier) CurrentAttempt() int {
 	return r.currentAttempt
+}
+
+func max(a, b time.Duration) time.Duration {
+	if a > b {
+		return a
+	}
+	return b
 }
